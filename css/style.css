@@ -197,6 +197,18 @@ body {
   display: block;
 }
 
+.animacao {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: 0.3s;
+}
+
+.execanime {
+  opacity: 1;
+  transform: translateX(0px);
+  transition: 0.3s;
+}
+
 @media (max-width: 700px) {
   body {
     grid-template-columns: 1fr;

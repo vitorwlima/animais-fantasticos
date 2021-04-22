@@ -54,3 +54,18 @@ function scrollSuave() {
   });
 }
 scrollSuave();
+
+function scrollAnimation() {
+  const sections = document.querySelectorAll(".animacao");
+
+  function animaScroll() {
+    sections.forEach((section) => {
+      const sectionTop = section.getBoundingClientRect().top;
+      if (sectionTop <= 700) {
+        section.classList.add("execanime");
+      }
+    });
+  }
+  window.addEventListener("scroll", animaScroll);
+}
+scrollAnimation();
