@@ -23,6 +23,9 @@ ul {
 body {
   background: #faf6ed;
   color: #222;
+}
+
+.grid-container {
   display: grid;
   grid-template-columns: 1fr 120px minmax(300px, 800px) 1fr;
 }
@@ -209,8 +212,82 @@ body {
   transition: 0.3s;
 }
 
+.animais-descricao section {
+  display: none;
+}
+
+.animais-descricao section.ativo {
+  display: block;
+  animation: slide-right 0.5s forwards;
+}
+
+.modal-container {
+  height: 100vh;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  animation: slide-down 0.4s forwards;
+}
+
+.modal-container.ativo {
+  display: flex;
+}
+
+.modal {
+  min-width: 300px;
+  background: #faf6ed;
+  padding: 40px;
+  border: #fb5 solid 10px;
+  position: relative;
+}
+
+.modal label {
+  font-size: 1rem;
+  font-family: "Roboto";
+}
+
+.modal input {
+  display: block;
+  font-size: 1rem;
+  padding: 5px 1px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.fechar {
+  cursor: pointer;
+  background: #e54;
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  top: -30px;
+  right: -30px;
+  padding: 15px;
+  border-radius: 50%;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.9rem;
+  font-weight: bold;
+  border: 0.5px solid black;
+}
+
+.entrar {
+  cursor: pointer;
+  background: #e54;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.8rem;
+  border: 0.5px solid black;
+}
+
 @media (max-width: 700px) {
-  body {
+  .grid-container {
     grid-template-columns: 1fr;
   }
   .menu,
@@ -244,15 +321,6 @@ body {
   .menu {
     margin-top: 0;
   }
-}
-
-.animais-descricao section {
-  display: none;
-}
-
-.animais-descricao section.ativo {
-  display: block;
-  animation: slide-right 0.5s forwards;
 }
 
 @keyframes slide-right {
