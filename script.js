@@ -69,3 +69,23 @@ function scrollAnimation() {
   window.addEventListener("scroll", animaScroll);
 }
 scrollAnimation();
+
+function modalInteracao() {
+  const btnLogin = document.querySelector("[data-modal='abrir']");
+  const btnFechar = document.querySelector("[data-modal='fechar']");
+  const modalContainer = document.querySelector(".modal-container");
+
+  function interacaoModal(event) {
+    event.preventDefault();
+    modalContainer.classList.toggle("ativo");
+  }
+
+  function fecharFora(event) {
+    if (event.target === this) interacaoModal(event);
+  }
+
+  btnLogin.addEventListener("click", interacaoModal);
+  btnFechar.addEventListener("click", interacaoModal);
+  modalContainer.addEventListener("click", fecharFora);
+}
+modalInteracao();
