@@ -90,14 +90,29 @@ function modalInteracao() {
 }
 modalInteracao();
 
-const dropdownMenu = document.querySelector("[data-dropdown]");
-const menuLista = document.querySelector(".dropdown-menu");
+function droppedMenu() {
+  const dropdownMenu = document.querySelector("[data-dropdown]");
+  const menuLista = document.querySelector(".dropdown-menu");
 
-dropdownMenu.addEventListener("click", toggleMenu);
-dropdownMenu.addEventListener("touchstart", toggleMenu);
+  dropdownMenu.addEventListener("click", toggleMenu);
+  dropdownMenu.addEventListener("touchstart", toggleMenu);
 
-function toggleMenu(event) {
-  console.log(event.target);
-  event.preventDefault();
-  menuLista.classList.toggle("ativo");
+  function toggleMenu(event) {
+    event.preventDefault();
+    menuLista.classList.add("ativo");
+    outsideClick(this, () => {
+      menuLista.classList.remove("ativo");
+    });
+  }
+
+  function outsideClick(element, callback) {
+    const html = document.documentElement;
+    html.addEventListener("click", handleOutsideClick);
+    function handleOutsideClick(event) {
+      if (!element.contains(event.target)) {
+        callback();
+      }
+    }
+  }
 }
+droppedMenu();
