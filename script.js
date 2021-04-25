@@ -89,3 +89,15 @@ function modalInteracao() {
   modalContainer.addEventListener("click", fecharFora);
 }
 modalInteracao();
+
+const dropdownMenu = document.querySelector("[data-dropdown]");
+const menuLista = document.querySelector(".dropdown-menu");
+
+dropdownMenu.addEventListener("click", toggleMenu);
+dropdownMenu.addEventListener("touchstart", toggleMenu);
+
+function toggleMenu(event) {
+  console.log(event.target);
+  event.preventDefault();
+  menuLista.classList.toggle("ativo");
+}
