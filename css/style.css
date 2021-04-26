@@ -374,6 +374,15 @@ body {
   .menu {
     margin-top: 0;
   }
+
+  .numeros-grid {
+    grid-column: 1;
+    padding: 5em;
+  }
+  .numero-animal {
+    padding-left: 2em;
+    padding-right: 2em;
+  }
 }
 
 @keyframes slide-right {
