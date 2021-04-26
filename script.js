@@ -147,3 +147,19 @@ function animarNumeros() {
   }
 }
 animarNumeros();
+
+function feedbackCorHorario() {
+  const funcionamento = document.querySelector("[data-semana]");
+  const diasSemana = funcionamento.dataset.semana.split(",").map(Number);
+  const horasSemana = funcionamento.dataset.horario.split(",").map(Number);
+
+  const dataAgora = new Date();
+  const diaAgora = dataAgora.getDay();
+  const horaAgora = dataAgora.getHours();
+
+  const semanaAberto = diasSemana.includes(diaAgora);
+  const horaAberto = horaAgora >= horasSemana[0] && horaAgora < horasSemana[1];
+
+  if (semanaAberto && horaAberto) funcionamento.classList.add("aberto");
+}
+feedbackCorHorario();

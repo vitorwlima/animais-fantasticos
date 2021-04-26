@@ -339,6 +339,21 @@ body {
   font-size: 1.5rem;
 }
 
+[data-semana]::after {
+  content: "";
+  width: 7px;
+  height: 7px;
+  margin-left: 6px;
+  background: #e54;
+  display: inline-block;
+  border-radius: 50%;
+  border: 1.5px solid black;
+}
+
+[data-semana].aberto::after {
+  background: #22ff99;
+}
+
 @media (max-width: 700px) {
   .grid-container {
     grid-template-columns: 1fr;
