@@ -116,3 +116,34 @@ function droppedMenu() {
   }
 }
 droppedMenu();
+
+function animarNumeros() {
+  const numerosAnimais = document.querySelectorAll(".numero-animal span");
+  const sectionNumeros = document.querySelector(".numeros");
+  const observer = new MutationObserver(handleMutation);
+  observer.observe(sectionNumeros, { attributes: true });
+
+  function handleMutation(mutacao) {
+    if (mutacao[0].target.classList.contains("execanime")) {
+      animaNumeros();
+      observer.disconnect();
+    }
+  }
+
+  function animaNumeros() {
+    numerosAnimais.forEach((numero) => {
+      const valor = +numero.innerText;
+      const incremento = valor / 100;
+      let start = 0;
+      const numLoop = setInterval(() => {
+        start += incremento;
+        numero.innerText = Math.floor(start);
+        if (start > valor) {
+          clearInterval(numLoop);
+          numero.innerText = valor;
+        }
+      }, 25);
+    });
+  }
+}
+animarNumeros();
